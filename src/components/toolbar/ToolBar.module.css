@@ -1,0 +1,42 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+a {
+  color: #0c100f;
+  text-decoration: none;
+}
+
+.logo {
+  font-size: clamp(1.563rem, -0.938rem + 2.5vw, 3.125rem);
+  font-weight: 700;
+}
+
+.navigationContainer {
+  width: 35%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigationContainer a p {
+  font-size: clamp(1rem, -1.9rem + 2.9vw, 2.813rem);
+}
+
+.imagesContainer {
+  width: 13%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.imagesContainer a {
+  width: 12%;
+}
+
+.imagesContainer a img {
+  width: 100%;
+}
