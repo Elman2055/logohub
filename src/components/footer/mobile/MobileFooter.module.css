@@ -1,0 +1,92 @@
+.wrapper {
+  background-color: #0c100f;
+  padding: 30px 0;
+}
+
+.container {
+  margin: 0 auto;
+  width: 400px;
+  max-width: 90%;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.formBlock {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+.formBlock input {
+  outline: none;
+  border: none;
+  background-color: #0c100f;
+  border-bottom: 1px solid #dcdcdc;
+  padding: 15px 0 10px 0;
+  color: #fff;
+}
+
+.sendBtn {
+  cursor: pointer;
+  border: none;
+  color: #0c100f;
+  padding: 8px 0;
+  margin: 30px 0 10px 0;
+}
+
+.checkContainer {
+  display: flex;
+  font-size: 13px;
+}
+
+.checkContainer p {
+  margin-left: 10px;
+}
+
+.logo {
+  width: 100%;
+  margin: 15% 0 3% 0;
+}
+
+.email {
+  font-size: clamp(1.563rem, 0.671rem + 4.32vw, 2.063rem);
+  font-weight: 700;
+  margin: 10% 0 2% 0;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  gap: 10px;
+}
+
+.socialBtns {
+  cursor: pointer;
+  border: none;
+  background-color: #0c100f;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.downNav {
+  margin-top: 10%;
+  border-top: 1px solid #313e3a;
+  font-size: 14px;
+  color: #313e3a;
+}
+
+.downNav p {
+  margin-top: 10px;
+}
+
+.downNav p:last-child {
+  margin-bottom: 20px;
+}
+
+.uptext {
+  cursor: pointer;
+}
