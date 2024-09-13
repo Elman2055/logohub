@@ -130,3 +130,47 @@
 .mainDownText {
   font-size: clamp(1.438rem, 0.326rem + 1.11vw, 2.063rem);
 }
+
+.infoBlock {
+  display: flex;
+  align-items: stretch;
+  margin-top: 7%;
+}
+
+.infoEndBlock {
+  justify-content: flex-end;
+}
+
+.firstCol {
+  width: 40%;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.infoTitle {
+  font-size: clamp(1.125rem, 0.171rem + 1.49vw, 2.5rem);
+}
+
+.infoDescription {
+  margin: 20px 0;
+  font-size: clamp(0.5rem, -0.15rem + 1.02vw, 1.438rem);
+}
+
+.firstCol img {
+  width: 100%;
+  object-fit: cover;
+  flex-grow: 1;
+}
+
+.secondCol {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.secondCol img {
+  width: 100%;
+}

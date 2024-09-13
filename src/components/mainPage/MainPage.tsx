@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 import { TMain } from "../../types/types.data";
 import Carousel from "../ui/slider/Slider";
+import first from "../../../public/firstColImage.png";
+import second from "../../../public/secondColImage.png";
+import third from "../../../public/thirdColIMage.png";
+import four from "../../../public/fourColImage.png";
+import five from "../../../public/fiveColImage.png";
+import six from "../../../public/six.png";
+import { infoBlock } from "./MainData";
 import styles from "./MainPage.module.css";
 
 const MainPage = ({
@@ -85,6 +92,24 @@ const MainPage = ({
             <h2 className={styles.mainUpText}>Узнайте нас</h2>
             <h4 className={styles.mainDownText}>Наш путь и ценности</h4>
           </div>
+
+          {infoBlock.map((el) => (
+            <div
+              key={el.id}
+              className={`${styles.infoBlock} ${
+                el.id === 2 ? styles.infoEndBlock : ""
+              }`}
+            >
+              <div className={styles.firstCol}>
+                <h3 className={styles.infoTitle}>{el.title}</h3>
+                <p className={styles.infoDescription}>{el.description}</p>
+                <img src={el.image1} alt="info picture" />
+              </div>
+              <div className={styles.secondCol}>
+                <img src={el.image2} alt="info picture" />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </>
