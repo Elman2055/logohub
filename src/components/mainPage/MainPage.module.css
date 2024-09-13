@@ -111,3 +111,22 @@
   color: #ffffff;
   border-color: #ffffff;
 }
+
+.mainBgWrapper {
+  background-color: #0c100f;
+  margin-bottom: 20px;
+  padding: 30px 0;
+}
+
+.mainTextContainer {
+  text-align: center;
+  color: #ffffff;
+}
+
+.mainUpText {
+  font-size: clamp(2.5rem, 0.278rem + 2.22vw, 3.75rem);
+}
+
+.mainDownText {
+  font-size: clamp(1.438rem, 0.326rem + 1.11vw, 2.063rem);
+}
