@@ -31,3 +31,36 @@ export const infoBlock = [
     image2: six,
   },
 ];
+
+export const answersBlock = [
+  {
+    id: 1,
+    question: "Какие форматы файлов вы предоставляете при покупке логотипа?",
+    answer:
+      "Lorem ipsum dolor sit amet consectetur. Ut ornare commodo urna velit nisl mattis. Habitasse nullam etiam justo est viverra. In donec vivamus ac suspendisse. Fringilla scelerisque mi id tristique. Urna consequat volutpat gravida proin donec ipsum eget non.",
+  },
+  {
+    id: 2,
+    question: "Как долго длится процесс создания и доставки логотипа?",
+    answer:
+      "Lorem ipsum dolor sit amet consectetur. Ut ornare commodo urna velit nisl mattis. In donec vivamus ac suspendisse. Fringilla scelerisque mi id tristique. Urna consequat volutpat gravida proin donec ipsum eget non.",
+  },
+  {
+    id: 3,
+    question: "Можно ли внести изменения в логотип после его получения?",
+    answer:
+      "Lorem ipsum dolor sit amet consectetur. In donec vivamus ac suspendisse. Fringilla scelerisque mi id tristique. Urna consequat volutpat gravida proin donec ipsum eget non.",
+  },
+  {
+    id: 4,
+    question: "Предоставляете ли вы уникальные и эксклюзивные дизайны?",
+    answer:
+      "In donec vivamus ac suspendisse. Fringilla scelerisque mi id tristique. Urna consequat volutpat gravida proin donec ipsum eget non.",
+  },
+  {
+    id: 5,
+    question: "Какие способы оплаты вы принимаете?",
+    answer:
+      "Lorem ipsum dolor sit amet consectetur. Ut ornare commodo urna velit nisl mattis. Habitasse nullam etiam justo est viverra. In donec vivamus ac suspendisse. Fringilla scelerisque mi id tristique.",
+  },
+];

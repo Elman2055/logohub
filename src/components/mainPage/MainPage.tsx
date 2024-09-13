@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { TMain } from "../../types/types.data";
 import Carousel from "../ui/slider/Slider";
-import { infoBlock } from "./MainData";
+import { answersBlock, infoBlock } from "./MainData";
+import { FaPlus } from "react-icons/fa6";
+import { FaMinus } from "react-icons/fa6";
 import styles from "./MainPage.module.css";
 
 const MainPage = ({
@@ -12,6 +14,11 @@ const MainPage = ({
 }: TMain) => {
   const [currentSlider, setCurrentSlider] = useState(sliderSaleProducts);
   const [activeButton, setActiveButton] = useState<string>("Скидки");
+  const [openedQuestion, setOpenedQuestion] = useState<number | null>(null);
+
+  const toggleQuestion = (id: number) => {
+    setOpenedQuestion(openedQuestion === id ? null : id);
+  };
 
   useEffect(() => {
     if (sliderSaleProducts) {
@@ -134,6 +141,33 @@ const MainPage = ({
           cartCurrent={3.5}
           isOnlyImages={true}
         />
+
+        <div className={styles.answersBlock}>
+          <h3>Часто задаваемые вопросы</h3>
+          {answersBlock.map((el) => (
+            <div key={el.id} className={styles.infoTextBlock}>
+              <div className={styles.questionBlock}>
+                <h4>{el.question}</h4>
+                {openedQuestion === el.id ? (
+                  <FaMinus
+                    onClick={() =>
+                      setOpenedQuestion(openedQuestion === el.id ? null : el.id)
+                    }
+                  />
+                ) : (
+                  <FaPlus
+                    onClick={() =>
+                      setOpenedQuestion(openedQuestion === el.id ? null : el.id)
+                    }
+                  />
+                )}
+              </div>
+              {openedQuestion === el.id && (
+                <p className={styles.answer}>{el.answer}</p>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );

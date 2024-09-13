@@ -199,3 +199,50 @@
 .descriptionDown {
   margin-bottom: 20%;
 }
+
+.answersBlock {
+  margin: 0 auto;
+  width: 65%;
+}
+
+.answersBlock h3 {
+  font-size: clamp(1.688rem, -1.424rem + 3.11vw, 3.438rem);
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.infoTextBlock {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  border-bottom: 2px solid #9da3a1;
+}
+
+.questionBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.infoTextBlock:last-child {
+  border: none;
+  margin-bottom: 20px;
+}
+
+.answer {
+  margin-top: 20px;
+}
+
+.infoTextBlock h4 {
+  font-size: clamp(1rem, -0.041rem + 1.63vw, 2.5rem);
+}
+
+.infoTextBlock svg {
+  cursor: pointer;
+  font-size: clamp(1.25rem, -0.972rem + 2.22vw, 2.5rem);
+  transition: all 0.5s ease;
+}
+
+.infoTextBlock svg:hover {
+  color: #a8a3a3;
+}
