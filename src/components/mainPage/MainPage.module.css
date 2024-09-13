@@ -24,6 +24,9 @@
 
 .leftBlockBg p {
   font-size: clamp(0.813rem, -0.188rem + 1vw, 1.375rem);
+}
+
+.leftDescription {
   margin: 20px 0;
 }
 
@@ -173,4 +176,24 @@
 
 .secondCol img {
   width: 100%;
+}
+
+.downMainBg {
+  aspect-ratio: 15/5;
+  background: no-repeat center/ 100% 100% url(../../../public/downMainBg.png);
+  display: flex;
+  align-items: center;
+}
+
+.downLeftBlockBg {
+  color: #ffffff;
+}
+
+.productImage {
+  width: 20%;
+  border-radius: 5px;
+}
+
+.descriptionDown {
+  margin-bottom: 20%;
 }

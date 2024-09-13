@@ -1,12 +1,6 @@
 import { useEffect, useState } from "react";
 import { TMain } from "../../types/types.data";
 import Carousel from "../ui/slider/Slider";
-import first from "../../../public/firstColImage.png";
-import second from "../../../public/secondColImage.png";
-import third from "../../../public/thirdColIMage.png";
-import four from "../../../public/fourColImage.png";
-import five from "../../../public/fiveColImage.png";
-import six from "../../../public/six.png";
 import { infoBlock } from "./MainData";
 import styles from "./MainPage.module.css";
 
@@ -32,7 +26,7 @@ const MainPage = ({
           <div className={styles.mainBlock}>
             <div className={styles.leftBlockBg}>
               <h3>Lorem ipsum dolor</h3>
-              <p>
+              <p className={styles.leftDescription}>
                 Lorem ipsum dolor sit amet consectetur. Sapien elit curabitur{" "}
                 <br />
                 feugiat luctus dui eros. Dolor sed sed aliquet eu pretium
@@ -110,6 +104,28 @@ const MainPage = ({
               </div>
             </div>
           ))}
+        </div>
+      </div>
+      <div className={styles.downMainBg}>
+        <div className={styles.container}>
+          <div className={styles.mainBlock}>
+            <div className={`${styles.leftBlockBg} ${styles.downLeftBlockBg}`}>
+              <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+              <p className={styles.descriptionDown}>
+                Lorem ipsum dolor sit amet consectetur. Sapien elit curabitur
+                feugiat <br /> luctus dui eros. Dolor sed sed aliquet eu pretium
+              </p>
+              <button className={styles.mainBtn}>Узнать больше</button>
+            </div>
+            {mainProduct.map((el) => (
+              <img
+                key={el.product_id}
+                src={`https://logohub.kz/api/products/previewImage/${el.image_preview}`}
+                alt="product"
+                className={styles.productImage}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </>
