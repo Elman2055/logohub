@@ -1,0 +1,113 @@
+.mainBg {
+  aspect-ratio: 13/5;
+  background: no-repeat center/100% 100% url(../../../public/mainBg.png);
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.container {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.mainBlock {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.leftBlockBg h3 {
+  font-size: clamp(2.5rem, -1.944rem + 4.44vw, 5rem);
+}
+
+.leftBlockBg p {
+  font-size: clamp(0.813rem, -0.188rem + 1vw, 1.375rem);
+  margin: 20px 0;
+}
+
+.rightBlock {
+  cursor: pointer;
+  width: 24%;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  color: #000;
+}
+
+.title {
+  font-size: clamp(0.938rem, 0.374rem + 0.88vw, 1.75rem);
+  font-weight: 700;
+  padding: 10px 0;
+}
+
+.description {
+  font-size: clamp(0.813rem, 0.379rem + 0.68vw, 1.438rem);
+}
+
+.rightBlock img {
+  aspect-ratio: 1;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.mainBtn {
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
+  color: #0c100f;
+  padding: 10px 20px;
+  transition: all 0.4s ease-in-out;
+  font-size: clamp(0.813rem, -0.854rem + 1.67vw, 1.75rem);
+}
+
+.mainBtn:hover {
+  background-color: #bababa;
+}
+
+.prriceBlock {
+  display: flex;
+  font-size: clamp(0.813rem, 0.379rem + 0.68vw, 1.438rem);
+  padding: 10px 0;
+}
+
+.oldPrice {
+  margin-right: 10px;
+  text-decoration: line-through;
+  color: #bababa;
+}
+
+.sliderTitleContainer {
+  display: flex;
+  margin: 5% 0 0 20px;
+}
+
+.titleSlider {
+  font-size: clamp(1.875rem, -0.347rem + 2.22vw, 3.125rem);
+  margin-right: 20px;
+}
+
+.sliderBtns {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  border: 1px solid #0c100f;
+  border-radius: 5px;
+  margin-left: 10px;
+  padding: 10px 15px;
+  font-size: clamp(0.875rem, -0.236rem + 1.11vw, 1.5rem);
+  transition: all 0.4s ease-in-out;
+}
+
+.sliderBtns:hover {
+  background-color: #0c100f;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.activeBtn {
+  background-color: #0c100f;
+  color: #ffffff;
+  border-color: #ffffff;
+}

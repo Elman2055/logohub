@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
-import search from "../../../../public/search.png";
-import favourites from "../../../../public/favourites.png";
-import user from "../../../../public/user.png";
-import cart from "../../../../public/cart.png";
+import { RiSearchFill } from "react-icons/ri";
+import { FaBookmark } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
 import styles from "./DesktopToolBar.module.css";
 
 const DesktopToolBar = () => {
@@ -31,19 +31,19 @@ const DesktopToolBar = () => {
 
       <div className={styles.imagesContainer}>
         <NavLink to={"/"}>
-          <img src={search} alt="search" />
+          <RiSearchFill />
         </NavLink>
 
         <NavLink to={"/"}>
-          <img src={favourites} alt="favourites" />
+          <FaBookmark />
         </NavLink>
 
         <NavLink to={"/"}>
-          <img src={user} alt="user" />
+          <FaUser />
         </NavLink>
 
         <NavLink to={"/"}>
-          <img src={cart} alt="cart" />
+          <FaShoppingCart />
         </NavLink>
       </div>
     </header>

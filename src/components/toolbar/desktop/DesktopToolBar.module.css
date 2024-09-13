@@ -33,10 +33,6 @@ a {
   justify-content: space-between;
 }
 
-.imagesContainer a {
-  width: 12%;
-}
-
-.imagesContainer a img {
-  width: 100%;
+.imagesContainer a svg {
+  font-size: clamp(1.25rem, -0.192rem + 1.92vw, 2.813rem);
 }

@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
-import sideBtn from "../../../../public/sideButton.png";
-import search from "../../../../public/search.png";
-import user from "../../../../public/user.png";
-import cart from "../../../../public/cart.png";
+import { HiMiniBars3CenterLeft } from "react-icons/hi2";
+import { RiSearchFill } from "react-icons/ri";
+import { FaUser } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
 import styles from "./MobileToolBar.module.css";
 import { useState } from "react";
 
@@ -13,25 +13,20 @@ const MobileToolBar = () => {
     <>
       <header className={styles.container}>
         <div className={styles.side}>
-          <img
-            src={sideBtn}
-            alt="side button"
-            className={styles.sideBtnImage}
-            onClick={() => setIsOpen(!isOpen)}
-          />
+          <HiMiniBars3CenterLeft onClick={() => setIsOpen(!isOpen)} />
           <NavLink to={"/"}>
             <h3 className={styles.logoText}>LOGOHUB</h3>
           </NavLink>
         </div>
         <nav className={styles.mobileNavigation}>
           <NavLink to={"/"}>
-            <img src={search} alt="search" />
+            <RiSearchFill />
           </NavLink>
           <NavLink to={"/"}>
-            <img src={user} alt="user" />
+            <FaUser />
           </NavLink>
           <NavLink to={"/"}>
-            <img src={cart} alt="cart" />
+            <FaShoppingCart />
           </NavLink>
         </nav>
       </header>
