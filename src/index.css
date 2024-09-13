@@ -11,3 +11,7 @@
 .slick-track {
   display: flex;
 }
+
+.slick-slide {
+  padding: 0 10px;
+}

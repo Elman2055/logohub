@@ -183,6 +183,7 @@
   background: no-repeat center/ 100% 100% url(../../../public/downMainBg.png);
   display: flex;
   align-items: center;
+  margin: 5% 0 2% 0;
 }
 
 .downLeftBlockBg {
@@ -190,6 +191,7 @@
 }
 
 .productImage {
+  cursor: pointer;
   width: 20%;
   border-radius: 5px;
 }

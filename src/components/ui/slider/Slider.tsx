@@ -2,18 +2,18 @@ import { useRef } from "react";
 import Slider from "react-slick";
 import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
-import { TProduct } from "../../../types/types.data";
+import { TSlider } from "../../../types/types.data";
 import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 import styles from "./Slider.module.css";
 
-const Carousel = ({ productSlider }: { productSlider: TProduct[] }) => {
+const Carousel = ({ productSlider, cartCurrent, isOnlyImages }: TSlider) => {
   const sliderRef = useRef<Slider | null>(null);
 
   const settings = {
     dots: false,
     infinite: false,
-    slidesToShow: 4.5,
-    slidesToScroll: 4.5,
+    slidesToShow: cartCurrent,
+    slidesToScroll: cartCurrent,
     arrows: false,
   };
 
@@ -33,21 +33,27 @@ const Carousel = ({ productSlider }: { productSlider: TProduct[] }) => {
                 className={styles.linkImage}
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               />
-              <div className={styles.btnContainer}>
-                <button onClick={(e) => e.preventDefault()}>Купить</button>
-                <button onClick={(e) => e.preventDefault()}>В Корзину</button>
-              </div>
+              {!isOnlyImages && (
+                <div className={styles.btnContainer}>
+                  <button onClick={(e) => e.preventDefault()}>Купить</button>
+                  <button onClick={(e) => e.preventDefault()}>В Корзину</button>
+                </div>
+              )}
             </div>
             <h3 className={styles.title}>{item.title}</h3>
-            <p className={styles.description}>{item.description}</p>
-            <div className={styles.priceBlock}>
-              {item.old_price ? (
-                <p className={styles.oldPrice}>{item.old_price}тг</p>
-              ) : (
-                <></>
-              )}
-              <p>{item.price}тг</p>
-            </div>
+            {!isOnlyImages && (
+              <>
+                <p className={styles.description}>{item.description}</p>
+                <div className={styles.priceBlock}>
+                  {item.old_price ? (
+                    <p className={styles.oldPrice}>{item.old_price}тг</p>
+                  ) : (
+                    <></>
+                  )}
+                  <p>{item.price}тг</p>
+                </div>
+              </>
+            )}
           </Link>
         ))}
       </Slider>

@@ -78,7 +78,7 @@ const MainPage = ({
             ))}
           </>
         </div>
-        <Carousel productSlider={currentSlider} />
+        <Carousel productSlider={currentSlider} cartCurrent={4.5} />
       </div>
       <div className={styles.mainBgWrapper}>
         <div className={styles.container}>
@@ -127,6 +127,13 @@ const MainPage = ({
             ))}
           </div>
         </div>
+      </div>
+      <div className={styles.container}>
+        <Carousel
+          productSlider={currentSlider}
+          cartCurrent={3.5}
+          isOnlyImages={true}
+        />
       </div>
     </>
   );

@@ -14,3 +14,9 @@ export type TMain = {
   sliderNewProducts: TProduct[];
   sliderExclusiveProducts: TProduct[];
 };
+
+export type TSlider = {
+  productSlider: TProduct[];
+  cartCurrent: number;
+  isOnlyImages?: boolean;
+};
