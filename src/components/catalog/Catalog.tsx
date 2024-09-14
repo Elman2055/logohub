@@ -67,10 +67,12 @@ const Catalog = ({
               )}
               <p>{el.price}тг</p>
             </div>
-            <div className={styles.mobileBtns}>
-              <button>Купить</button>
-              <button>В Корзину</button>
-            </div>
+            {!isDesktop && (
+              <div className={styles.mobileBtns}>
+                <button>Купить</button>
+                <button>В Корзину</button>
+              </div>
+            )}
           </Link>
         ))}
       </div>

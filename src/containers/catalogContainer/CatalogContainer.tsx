@@ -44,6 +44,7 @@ const CatalogContainer = () => {
 
   useEffect(() => {
     getPages();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [products, currentPage]);
 
   return (

@@ -14,7 +14,7 @@ export const logohubApi = createApi({
       }),
     }),
     getProduct: builder.query({
-      query: (id: number) => `/products/product/${id}`,
+      query: (id: number) => `/products/get-product/${id}`,
     }),
   }),
 });

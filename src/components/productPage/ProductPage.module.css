@@ -1,0 +1,142 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.productBlock {
+  display: flex;
+  margin-top: 4%;
+}
+
+.title {
+  font-size: 23px;
+  margin-bottom: 3%;
+}
+
+.description {
+  margin-bottom: 3%;
+}
+
+.productImage {
+  width: 40%;
+  margin-right: 40px;
+}
+
+.priceAndFeedback {
+  display: flex;
+  justify-content: space-between;
+}
+
+.priceBlock {
+  display: flex;
+}
+
+.oldPrice {
+  text-decoration: line-through;
+  margin-right: 10px;
+}
+
+.feedbackCol {
+  display: flex;
+  align-items: center;
+}
+
+.feedbackCol span {
+  text-decoration: underline;
+  margin-left: 10px;
+}
+
+.buyBtn,
+.reserveBtn {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background-color: #0c100f;
+  color: #ffff;
+  padding: 10px 0;
+  border-radius: 2px;
+  margin-top: 20px;
+  transition: all 0.4s ease-in-out;
+}
+
+.buyBtn:hover {
+  background-color: #5f6261;
+}
+
+.reserveBtns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reserveBtns button {
+  width: 48%;
+  background-color: transparent;
+  color: #0c100f;
+  border: 1px solid #0c100f;
+}
+
+.reserveBtns button:hover {
+  background-color: #0c100f;
+  color: #ffff;
+}
+
+.tabsContainer {
+  display: flex;
+  margin-top: 20px;
+}
+
+.tab {
+  width: 50%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px 15px;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+  border-bottom: 2px solid rgb(174, 171, 171);
+}
+
+.activeTab {
+  border-bottom: 2px solid #000;
+}
+
+.tabContent {
+  width: 400px;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.sliderTitleContainer {
+  display: flex;
+  margin: 5% 0 0 20px;
+}
+
+.titleSlider {
+  font-size: clamp(1.875rem, -0.347rem + 2.22vw, 3.125rem);
+  margin-right: 20px;
+}
+
+.sliderBtns {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  border: 1px solid #0c100f;
+  border-radius: 5px;
+  margin-left: 10px;
+  padding: 10px 15px;
+  font-size: clamp(0.875rem, -0.236rem + 1.11vw, 1.5rem);
+  transition: all 0.4s ease-in-out;
+}
+
+.sliderBtns:hover {
+  background-color: #0c100f;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.activeBtn {
+  background-color: #0c100f;
+  color: #ffffff;
+  border-color: #ffffff;
+}
