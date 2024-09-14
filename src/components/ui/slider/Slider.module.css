@@ -85,3 +85,34 @@
 .sliderBtn:hover {
   background-color: #efefef;
 }
+
+.mobileBtns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.mobileBtns button {
+  cursor: pointer;
+  background-color: #0c100f;
+  color: #ffffff;
+  border: none;
+  width: 45%;
+  padding: 8px 0;
+  transition: all 0.4s ease;
+  font-size: clamp(0.938rem, -0.729rem + 1.67vw, 1.875rem);
+}
+
+.mobileBtns button:hover {
+  background-color: #5f6261;
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 16px;
+  }
+
+  .description {
+    font-size: 13px;
+  }
+}

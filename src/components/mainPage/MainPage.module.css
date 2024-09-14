@@ -231,6 +231,7 @@
 
 .answer {
   margin-top: 20px;
+  font-size: clamp(0.875rem, 0.183rem + 0.96vw, 1.688rem);
 }
 
 .infoTextBlock h4 {
@@ -245,4 +246,138 @@
 
 .infoTextBlock svg:hover {
   color: #a8a3a3;
+}
+
+@media (max-width: 1024px) {
+  .mainBgWrapper {
+    background-color: transparent;
+  }
+
+  .mainBg {
+    aspect-ratio: 6/5;
+    background: no-repeat center/ 100% 100%
+      url(../../../public/mobileMainBg.png);
+  }
+
+  .mainBlock {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .rightBlock {
+    width: 500px;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10%;
+  }
+
+  .rightBlock img {
+    width: 35%;
+    margin-right: 10px;
+  }
+
+  .leftBlockBg h3 {
+    font-size: 30px;
+  }
+
+  .leftBlockBg p {
+    font-size: 12px;
+  }
+
+  .sliderTitleContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .titleSlider {
+    margin: 10px 0;
+    font-size: 26px;
+  }
+
+  .infoBlock {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .firstCol {
+    margin: 0;
+  }
+
+  .mainTextContainer {
+    color: #0c100f;
+  }
+
+  .firstCol,
+  .secondCol {
+    width: 600px;
+    max-width: 90%;
+    color: #0c100f;
+  }
+
+  .infoTitle {
+    font-size: 20px;
+  }
+
+  .infoDescription {
+    font-size: 11px;
+    line-height: 18px;
+  }
+
+  .secondCol {
+    flex-direction: column-reverse;
+  }
+
+  .mobileInfoImage {
+    margin-bottom: 15px;
+  }
+
+  .downMainBg {
+    aspect-ratio: 9/9;
+    background: no-repeat center/ 100% 100%
+      url(../../../public/mobileDownMainBg.png);
+  }
+
+  .mobileMain {
+    display: flex;
+    align-items: center;
+  }
+
+  .productImage {
+    width: 40%;
+  }
+
+  .mobileMainBtn {
+    margin-top: 10%;
+    width: 65%;
+  }
+
+  .answersBlock {
+    width: 90%;
+  }
+}
+
+@media (max-width: 500px) {
+  .mainBg {
+    aspect-ratio: 4/5;
+  }
+
+  .downMainBg {
+    aspect-ratio: 6.5/9;
+  }
+
+  .mobileMainBtn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .mainBg {
+    aspect-ratio: 4/5;
+  }
+
+  .sliderBtns {
+    font-size: 12px;
+  }
 }

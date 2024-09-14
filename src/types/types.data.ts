@@ -18,5 +18,6 @@ export type TMain = {
 export type TSlider = {
   productSlider: TProduct[];
   cartCurrent: number;
+  mobileCurrent?: number;
   isOnlyImages?: boolean;
 };

@@ -4,6 +4,7 @@ import Carousel from "../ui/slider/Slider";
 import { answersBlock, infoBlock } from "./MainData";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
+import useDesktop from "../../hooks/useDesktop";
 import styles from "./MainPage.module.css";
 
 const MainPage = ({
@@ -12,13 +13,11 @@ const MainPage = ({
   sliderNewProducts,
   sliderExclusiveProducts,
 }: TMain) => {
+  const isDesktop = useDesktop();
+
   const [currentSlider, setCurrentSlider] = useState(sliderSaleProducts);
   const [activeButton, setActiveButton] = useState<string>("Скидки");
   const [openedQuestion, setOpenedQuestion] = useState<number | null>(null);
-
-  const toggleQuestion = (id: number) => {
-    setOpenedQuestion(openedQuestion === id ? null : id);
-  };
 
   useEffect(() => {
     if (sliderSaleProducts) {
@@ -46,15 +45,17 @@ const MainPage = ({
                   src={`https://logohub.kz/api/products/previewImage/${el.image_preview}`}
                   alt="product"
                 />
-                <p className={styles.title}>{el.title}</p>
-                <p className={styles.description}>{el.description}</p>
-                <div className={styles.prriceBlock}>
-                  {el.old_price ? (
-                    <p className={styles.oldPrice}>{el.old_price} тг</p>
-                  ) : (
-                    <></>
-                  )}
-                  <p>{el.price} тг</p>
+                <div>
+                  <p className={styles.title}>{el.title}</p>
+                  <p className={styles.description}>{el.description}</p>
+                  <div className={styles.prriceBlock}>
+                    {el.old_price ? (
+                      <p className={styles.oldPrice}>{el.old_price} тг</p>
+                    ) : (
+                      <></>
+                    )}
+                    <p>{el.price} тг</p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -64,7 +65,7 @@ const MainPage = ({
       <div className={styles.container}>
         <div className={styles.sliderTitleContainer}>
           <h2 className={styles.titleSlider}>Лучшие предложения</h2>
-          <>
+          <div>
             {[
               { slider: sliderSaleProducts, sliderText: "Скидки" },
               { slider: sliderNewProducts, sliderText: "Новые" },
@@ -83,9 +84,17 @@ const MainPage = ({
                 {el.sliderText}
               </button>
             ))}
-          </>
+          </div>
         </div>
-        <Carousel productSlider={currentSlider} cartCurrent={4.5} />
+        {isDesktop ? (
+          <Carousel productSlider={currentSlider} cartCurrent={4.5} />
+        ) : (
+          <Carousel
+            productSlider={currentSlider}
+            cartCurrent={1.5}
+            mobileCurrent={1}
+          />
+        )}
       </div>
       <div className={styles.mainBgWrapper}>
         <div className={styles.container}>
@@ -104,10 +113,15 @@ const MainPage = ({
               <div className={styles.firstCol}>
                 <h3 className={styles.infoTitle}>{el.title}</h3>
                 <p className={styles.infoDescription}>{el.description}</p>
-                <img src={el.image1} alt="info picture" />
+                {isDesktop && <img src={el.image1} alt="info picture" />}
               </div>
               <div className={styles.secondCol}>
-                <img src={el.image2} alt="info picture" />
+                {!isDesktop && <img src={el.image1} alt="info picture" />}
+                <img
+                  src={el.image2}
+                  alt="info picture"
+                  className={styles.mobileInfoImage}
+                />
               </div>
             </div>
           ))}
@@ -115,14 +129,16 @@ const MainPage = ({
       </div>
       <div className={styles.downMainBg}>
         <div className={styles.container}>
-          <div className={styles.mainBlock}>
+          <div className={`${styles.mainBlock} ${styles.mobileMain}`}>
             <div className={`${styles.leftBlockBg} ${styles.downLeftBlockBg}`}>
               <h3>Lorem ipsum dolor sit amet consectetur.</h3>
               <p className={styles.descriptionDown}>
                 Lorem ipsum dolor sit amet consectetur. Sapien elit curabitur
                 feugiat <br /> luctus dui eros. Dolor sed sed aliquet eu pretium
               </p>
-              <button className={styles.mainBtn}>Узнать больше</button>
+              {isDesktop && (
+                <button className={styles.mainBtn}>Узнать больше</button>
+              )}
             </div>
             {mainProduct.map((el) => (
               <img
@@ -132,15 +148,29 @@ const MainPage = ({
                 className={styles.productImage}
               />
             ))}
+            {!isDesktop && (
+              <button className={`${styles.mainBtn} ${styles.mobileMainBtn}`}>
+                Узнать больше
+              </button>
+            )}
           </div>
         </div>
       </div>
       <div className={styles.container}>
-        <Carousel
-          productSlider={currentSlider}
-          cartCurrent={3.5}
-          isOnlyImages={true}
-        />
+        {isDesktop ? (
+          <Carousel
+            productSlider={currentSlider}
+            cartCurrent={3.5}
+            isOnlyImages={true}
+          />
+        ) : (
+          <Carousel
+            productSlider={currentSlider}
+            cartCurrent={1.5}
+            mobileCurrent={1}
+            isOnlyImages={true}
+          />
+        )}
 
         <div className={styles.answersBlock}>
           <h3>Часто задаваемые вопросы</h3>

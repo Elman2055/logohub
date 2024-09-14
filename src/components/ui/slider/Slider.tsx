@@ -6,19 +6,35 @@ import { TSlider } from "../../../types/types.data";
 import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 import styles from "./Slider.module.css";
 
-const Carousel = ({ productSlider, cartCurrent, isOnlyImages }: TSlider) => {
+const Carousel = ({
+  productSlider,
+  cartCurrent,
+  isOnlyImages,
+  mobileCurrent,
+}: TSlider) => {
   const sliderRef = useRef<Slider | null>(null);
 
   const settings = {
     dots: false,
     infinite: false,
     slidesToShow: cartCurrent,
-    slidesToScroll: cartCurrent,
+    slidesToScroll: mobileCurrent ? mobileCurrent : cartCurrent,
     arrows: false,
   };
 
+  const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    if (e.deltaX < 0) {
+      sliderRef.current?.slickPrev();
+    } else {
+      sliderRef.current?.slickNext();
+    }
+  };
+
   return (
-    <Box sx={{ width: "100%", textAlign: "left", margin: "40px 0" }}>
+    <Box
+      sx={{ width: "100%", textAlign: "left", margin: "40px 0" }}
+      onWheel={handleWheel}
+    >
       <Slider ref={sliderRef} {...settings}>
         {productSlider.map((item) => (
           <Link
@@ -33,7 +49,7 @@ const Carousel = ({ productSlider, cartCurrent, isOnlyImages }: TSlider) => {
                 className={styles.linkImage}
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               />
-              {!isOnlyImages && (
+              {!isOnlyImages && !mobileCurrent && (
                 <div className={styles.btnContainer}>
                   <button onClick={(e) => e.preventDefault()}>Купить</button>
                   <button onClick={(e) => e.preventDefault()}>В Корзину</button>
@@ -52,6 +68,12 @@ const Carousel = ({ productSlider, cartCurrent, isOnlyImages }: TSlider) => {
                   )}
                   <p>{item.price}тг</p>
                 </div>
+                {mobileCurrent && (
+                  <div className={styles.mobileBtns}>
+                    <button>Купить</button>
+                    <button>В Корзину</button>
+                  </div>
+                )}
               </>
             )}
           </Link>
@@ -65,18 +87,22 @@ const Carousel = ({ productSlider, cartCurrent, isOnlyImages }: TSlider) => {
           gap: "10px",
         }}
       >
-        <button
-          className={styles.sliderBtn}
-          onClick={() => sliderRef.current?.slickPrev()}
-        >
-          <GrFormPrevious />
-        </button>
-        <button
-          className={styles.sliderBtn}
-          onClick={() => sliderRef.current?.slickNext()}
-        >
-          <GrFormNext />
-        </button>
+        {!mobileCurrent && (
+          <>
+            <button
+              className={styles.sliderBtn}
+              onClick={() => sliderRef.current?.slickPrev()}
+            >
+              <GrFormPrevious />
+            </button>
+            <button
+              className={styles.sliderBtn}
+              onClick={() => sliderRef.current?.slickNext()}
+            >
+              <GrFormNext />
+            </button>
+          </>
+        )}
       </Box>
     </Box>
   );
