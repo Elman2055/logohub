@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Slider from "react-slick";
 import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -29,6 +29,12 @@ const Carousel = ({
       sliderRef.current?.slickNext();
     }
   };
+
+  useEffect(() => {
+    if (sliderRef.current) {
+      sliderRef.current.slickGoTo(0);
+    }
+  }, [productSlider]);
 
   return (
     <Box
