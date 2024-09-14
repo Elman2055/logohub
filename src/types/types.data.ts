@@ -21,3 +21,11 @@ export type TSlider = {
   mobileCurrent?: number;
   isOnlyImages?: boolean;
 };
+
+export type TCatalog = {
+  products: TProduct[];
+  title: string;
+  currentPage: number;
+  setCurrentPage: (page: number) => void;
+  totalPages: number;
+};

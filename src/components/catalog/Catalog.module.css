@@ -44,7 +44,8 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(200px, 1fr));
   grid-template-rows: auto;
-  gap: 10px;
+  gap: 25px;
+  margin-bottom: 5%;
 }
 
 .link {
@@ -113,4 +114,10 @@
 .oldPrice {
   text-decoration: line-through;
   margin-right: 10px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5%;
 }

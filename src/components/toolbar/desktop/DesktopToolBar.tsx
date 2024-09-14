@@ -12,7 +12,7 @@ const DesktopToolBar = () => {
         <h2 className={styles.logo}>LOGOHUB</h2>
       </NavLink>
       <nav className={styles.navigationContainer}>
-        <NavLink to={"/"}>
+        <NavLink to={"/catalog/Все"}>
           <p>Каталог</p>
         </NavLink>
 

@@ -1,17 +1,25 @@
 import { categoryBlock } from "./CatalogData";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Pagination from "@mui/material/Pagination";
+import { TCatalog } from "../../types/types.data";
+import useDesktop from "../../hooks/useDesktop";
 import styles from "./Catalog.module.css";
-import { TProduct } from "../../types/types.data";
 
-const Catalog = ({ products }: { products: TProduct[] }) => {
+const Catalog = ({
+  products,
+  title,
+  totalPages,
+  currentPage,
+  setCurrentPage,
+}: TCatalog) => {
   const navigate = useNavigate();
-  const [catalog, setCatalog] = useState<string>("Все");
+  const isDesktop = useDesktop();
 
   return (
     <div className={styles.container}>
       <div className={styles.title}>
-        <h2>Корпоративные</h2>
+        <h2>{title}</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur. Sapien elit curabitur <br />{" "}
           feugiat luctus dui eros. Dolor sed sed aliquet eu pretium
@@ -22,11 +30,10 @@ const Catalog = ({ products }: { products: TProduct[] }) => {
           <button
             key={el.id}
             onClick={() => {
-              setCatalog(el.category);
               navigate({ pathname: `/catalog/${el.category}` });
             }}
             className={`${styles.catalogBtn} ${
-              catalog === el.category ? styles.activeBtn : ""
+              title === el.category ? styles.activeBtn : ""
             }`}
           >
             {el.category}
@@ -61,6 +68,21 @@ const Catalog = ({ products }: { products: TProduct[] }) => {
             </>
           </Link>
         ))}
+      </div>
+      <div className={styles.pagination}>
+        {totalPages > 1 && (
+          <Pagination
+            count={totalPages}
+            page={currentPage}
+            size={isDesktop ? "large" : "medium"}
+            shape="rounded"
+            onChange={(event, value) => {
+              setCurrentPage(value);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            variant="outlined"
+          />
+        )}
       </div>
     </div>
   );
