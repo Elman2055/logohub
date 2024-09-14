@@ -4,10 +4,13 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { TProduct } from "../../types/types.data";
 import { categoryMapping } from "../../components/catalog/CatalogData";
+import useDesktop from "../../hooks/useDesktop";
 import styles from "./CatalogContainer.module.css";
 
 const CatalogContainer = () => {
   const { id } = useParams();
+  const isDesktop = useDesktop();
+
   const [allProducts] = useGetProductsMutation();
   const [products, setProducts] = useState<TProduct[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -24,11 +27,13 @@ const CatalogContainer = () => {
   };
 
   const getPages = () => {
-    const totalPages = Math.ceil(products.length / 12);
+    const cardsLength = isDesktop ? 12 : 6;
+
+    const totalPages = Math.ceil(products.length / cardsLength);
     setTotalPages(totalPages);
     const currentProducts = products.slice(
-      (currentPage - 1) * 12,
-      currentPage * 12
+      (currentPage - 1) * cardsLength,
+      currentPage * cardsLength
     );
     setCurrentProducts(currentProducts);
   };

@@ -20,8 +20,9 @@ const Catalog = ({
     <div className={styles.container}>
       <div className={styles.title}>
         <h2>{title}</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur. Sapien elit curabitur <br />{" "}
+        <p className={styles.descriptionCatalog}>
+          Lorem ipsum dolor sit amet consectetur. Sapien elit curabitur{" "}
+          {isDesktop ? <br /> : <></>}
           feugiat luctus dui eros. Dolor sed sed aliquet eu pretium
         </p>
       </div>
@@ -51,21 +52,25 @@ const Catalog = ({
                 className={styles.linkImage}
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               />
-              <div className={styles.btnContainer}>
-                <button onClick={(e) => e.preventDefault()}>Купить</button>
-                <button onClick={(e) => e.preventDefault()}>В Корзину</button>
-              </div>
+              {isDesktop && (
+                <div className={styles.btnContainer}>
+                  <button onClick={(e) => e.preventDefault()}>Купить</button>
+                  <button onClick={(e) => e.preventDefault()}>В Корзину</button>
+                </div>
+              )}
             </div>
             <h3 className={styles.title}>{el.title}</h3>
-            <>
-              <p className={styles.description}>{el.description}</p>
-              <div className={styles.priceBlock}>
-                {el.old_price && (
-                  <p className={styles.oldPrice}>{el.old_price}тг</p>
-                )}
-                <p>{el.price}тг</p>
-              </div>
-            </>
+            <p className={styles.description}>{el.description}</p>
+            <div className={styles.priceBlock}>
+              {el.old_price && (
+                <p className={styles.oldPrice}>{el.old_price}тг</p>
+              )}
+              <p>{el.price}тг</p>
+            </div>
+            <div className={styles.mobileBtns}>
+              <button>Купить</button>
+              <button>В Корзину</button>
+            </div>
           </Link>
         ))}
       </div>

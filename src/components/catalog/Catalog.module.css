@@ -13,7 +13,33 @@
 }
 
 .catalogBtnsContainer {
-  margin: 2% 0 4% 0;
+  margin: 20px 0 50px 0;
+  white-space: nowrap;
+  overflow: auto;
+}
+
+.catalogBtnsContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.mobileBtns {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.mobileBtns button {
+  cursor: pointer;
+  border: none;
+  background-color: #0c100f;
+  color: #ffffff;
+  padding: 10px 15px;
+  width: 48%;
+  transition: all 0.4s ease-in-out;
+}
+
+.mobileBtns button:hover {
+  background-color: #5f6261;
 }
 
 .catalogBtn {
@@ -120,4 +146,15 @@
   display: flex;
   justify-content: center;
   margin-bottom: 5%;
+}
+
+@media (max-width: 1024px) {
+  .descriptionCatalog {
+    font-size: 15px;
+  }
+
+  .gridContainer {
+    grid-template-columns: minmax(60%, 400px);
+    justify-content: center;
+  }
 }
