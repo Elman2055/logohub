@@ -4,6 +4,7 @@ import { FaBookmark } from "react-icons/fa";
 import { MdStars } from "react-icons/md";
 import Carousel from "../ui/slider/Slider";
 import useDesktop from "../../hooks/useDesktop";
+import { feedback } from "./ProductData";
 import styles from "./ProductPage.module.css";
 
 const ProductPage = ({
@@ -118,6 +119,26 @@ const ProductPage = ({
           mobileCurrent={1}
         />
       )}
+
+      <div className={styles.feedbackBlock}>
+        <div className={styles.feedbackLeftBlock}>
+          <p>
+            4.8 <MdStars /> (16 оценок)
+          </p>
+          <p>Оставить отзыв</p>
+        </div>
+        <div className={styles.feedbackRightBlockContainer}>
+          {feedback.map((el) => (
+            <div key={el.id} className={styles.feedbackRightBlock}>
+              <h3>{el.name}</h3>
+              <p className={styles.feedbackInfo}>
+                {el.feedback} <MdStars /> <span>2024/07/12</span>
+              </p>
+              <p>{el.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
