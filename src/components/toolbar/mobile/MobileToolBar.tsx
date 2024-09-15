@@ -46,7 +46,7 @@ const MobileToolBar = () => {
               setIsOpen(false);
             }}
           >
-            <NavLink to={"/"}>Каталог</NavLink>
+            <NavLink to={"/catalog/Все"}>Каталог</NavLink>
           </li>
           <li
             onClick={() => {

@@ -51,6 +51,52 @@
   margin: 15% 0 3% 0;
 }
 
+.notActive {
+  background-color: #7b7b7b !important;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkboxInput {
+  display: none;
+}
+
+.customCheckbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+  background-color: white;
+  transition: background-color 0.3s ease;
+}
+
+.checkboxInput:checked + .customCheckbox {
+  background-color: #4caf50;
+  border-color: #4caf50;
+}
+
+.customCheckbox:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 5px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
 .email {
   font-size: clamp(1.563rem, 0.671rem + 4.32vw, 2.063rem);
   font-weight: 700;

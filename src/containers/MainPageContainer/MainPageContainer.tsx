@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import MainPage from "../../components/mainPage/MainPage";
 import { useGetProductsMutation } from "../../store/logohubApi";
 import { TProduct } from "../../types/types.data";
-import styles from "./MainPageContainer.module.css";
+import Loader from "../../components/ui/loader/Loader";
 
 const MainPageContainer = () => {
   const [mainProduct, setMainProduct] = useState<TProduct[]>([]);
@@ -12,7 +12,7 @@ const MainPageContainer = () => {
     TProduct[]
   >([]);
 
-  const [getProduct] = useGetProductsMutation();
+  const [getProduct, { isLoading }] = useGetProductsMutation();
 
   const getProducts = async () => {
     const { data } = await getProduct("");
@@ -29,12 +29,15 @@ const MainPageContainer = () => {
   }, []);
 
   return (
-    <MainPage
-      mainProduct={mainProduct}
-      sliderSaleProducts={sliderSaleProducts}
-      sliderNewProducts={sliderNewProducts}
-      sliderExclusiveProducts={sliderExclusiveProducts}
-    />
+    <>
+      <Loader isOpen={isLoading} />
+      <MainPage
+        mainProduct={mainProduct}
+        sliderSaleProducts={sliderSaleProducts}
+        sliderNewProducts={sliderNewProducts}
+        sliderExclusiveProducts={sliderExclusiveProducts}
+      />
+    </>
   );
 };
 

@@ -5,6 +5,7 @@ import { answersBlock, infoBlock } from "./MainData";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 import useDesktop from "../../hooks/useDesktop";
+import { useNavigate } from "react-router-dom";
 import styles from "./MainPage.module.css";
 
 const MainPage = ({
@@ -14,6 +15,7 @@ const MainPage = ({
   sliderExclusiveProducts,
 }: TMain) => {
   const isDesktop = useDesktop();
+  const navigate = useNavigate();
 
   const [currentSlider, setCurrentSlider] = useState(sliderSaleProducts);
   const [activeButton, setActiveButton] = useState<string>("Скидки");
@@ -37,13 +39,21 @@ const MainPage = ({
                 <br />
                 feugiat luctus dui eros. Dolor sed sed aliquet eu pretium
               </p>
-              <button className={styles.mainBtn}>Узнать больше</button>
+              <button
+                className={styles.mainBtn}
+                onClick={() => navigate({ pathname: `/product/1` })}
+              >
+                Узнать больше
+              </button>
             </div>
             {mainProduct.map((el) => (
               <div key={el.product_id} className={styles.rightBlock}>
                 <img
                   src={`https://logohub.kz/api/products/previewImage/${el.image_preview}`}
                   alt="product"
+                  onClick={() =>
+                    navigate({ pathname: `/product/${el.product_id}` })
+                  }
                 />
                 <div>
                   <p className={styles.title}>{el.title}</p>
@@ -137,7 +147,12 @@ const MainPage = ({
                 feugiat <br /> luctus dui eros. Dolor sed sed aliquet eu pretium
               </p>
               {isDesktop && (
-                <button className={styles.mainBtn}>Узнать больше</button>
+                <button
+                  className={styles.mainBtn}
+                  onClick={() => navigate({ pathname: `/product/1` })}
+                >
+                  Узнать больше
+                </button>
               )}
             </div>
             {mainProduct.map((el) => (
@@ -145,6 +160,9 @@ const MainPage = ({
                 key={el.product_id}
                 src={`https://logohub.kz/api/products/previewImage/${el.image_preview}`}
                 alt="product"
+                onClick={() =>
+                  navigate({ pathname: `/product/${el.product_id}` })
+                }
                 className={styles.productImage}
               />
             ))}

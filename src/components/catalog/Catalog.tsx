@@ -1,5 +1,4 @@
 import { categoryBlock } from "./CatalogData";
-import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 import { TCatalog } from "../../types/types.data";

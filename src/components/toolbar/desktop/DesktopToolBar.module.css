@@ -10,6 +10,11 @@
 a {
   color: #0c100f;
   text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.container a:hover {
+  color: rgb(138, 100, 100);
 }
 
 .logo {

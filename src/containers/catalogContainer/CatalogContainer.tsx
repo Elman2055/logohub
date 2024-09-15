@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 import { TProduct } from "../../types/types.data";
 import { categoryMapping } from "../../components/catalog/CatalogData";
 import useDesktop from "../../hooks/useDesktop";
-import styles from "./CatalogContainer.module.css";
+import Loader from "../../components/ui/loader/Loader";
 
 const CatalogContainer = () => {
   const { id } = useParams();
   const isDesktop = useDesktop();
 
-  const [allProducts] = useGetProductsMutation();
+  const [allProducts, { isLoading }] = useGetProductsMutation();
   const [products, setProducts] = useState<TProduct[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
@@ -48,13 +48,16 @@ const CatalogContainer = () => {
   }, [products, currentPage]);
 
   return (
-    <Catalog
-      products={currentProducts}
-      title={id || ""}
-      setCurrentPage={setCurrentPage}
-      currentPage={currentPage}
-      totalPages={totalPages}
-    />
+    <>
+      <Loader isOpen={isLoading} />
+      <Catalog
+        products={currentProducts}
+        title={id || ""}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+        totalPages={totalPages}
+      />
+    </>
   );
 };
 

@@ -6,12 +6,12 @@ import {
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { TProduct } from "../../types/types.data";
-import styles from "./ProductPageContainer.module.css";
+import Loader from "../../components/ui/loader/Loader";
 
 const ProductPageContainer = () => {
   const { id } = useParams();
-  const { data } = useGetProductQuery(Number(id));
-  const [products] = useGetProductsMutation();
+  const { data, isLoading: productsLoader } = useGetProductQuery(Number(id));
+  const [products, { isLoading }] = useGetProductsMutation();
 
   const [sliderSaleProducts, setSliderSaleProducts] = useState<TProduct[]>([]);
   const [sliderNewProducts, setSliderNewProducts] = useState<TProduct[]>([]);
@@ -35,10 +35,12 @@ const ProductPageContainer = () => {
       setProduct(data.product);
     }
     getProducts();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [data]);
 
   return (
     <>
+      <Loader isOpen={productsLoader || isLoading} />
       {sliderSaleProducts.length > 0 && (
         <ProductPage
           mainProduct={product}
