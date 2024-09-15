@@ -45,19 +45,40 @@ const ProductPage = ({
             className={styles.productImage}
           />
           <div>
-            <h3 className={styles.title}>{el.title}</h3>
+            {isDesktop ? (
+              <h3 className={styles.title}>{el.title}</h3>
+            ) : (
+              <>
+                <div
+                  className={`${styles.priceAndFeedback} ${styles.mobilePrice}`}
+                >
+                  <div className={styles.priceBlock}>
+                    {el.old_price && (
+                      <p className={styles.oldPrice}>{el.old_price}тг</p>
+                    )}
+                    <p>{el.price}тг</p>
+                  </div>
+                  <p className={styles.feedbackCol}>
+                    4.8 <MdStars /> <span>(16 оценок)</span>
+                  </p>
+                </div>
+                <h3 className={styles.title}>{el.title}</h3>
+              </>
+            )}
             <p className={styles.description}>{el.description}</p>
-            <div className={styles.priceAndFeedback}>
-              <div className={styles.priceBlock}>
-                {el.old_price && (
-                  <p className={styles.oldPrice}>{el.old_price}тг</p>
-                )}
-                <p>{el.price}тг</p>
+            {isDesktop && (
+              <div className={styles.priceAndFeedback}>
+                <div className={styles.priceBlock}>
+                  {el.old_price && (
+                    <p className={styles.oldPrice}>{el.old_price}тг</p>
+                  )}
+                  <p>{el.price}тг</p>
+                </div>
+                <p className={styles.feedbackCol}>
+                  4.8 <MdStars /> <span>(16 оценок)</span>
+                </p>
               </div>
-              <p className={styles.feedbackCol}>
-                4.8 <MdStars /> <span>(16 оценок)</span>
-              </p>
-            </div>
+            )}
             <button className={styles.buyBtn}>Купить</button>
             <div className={styles.reserveBtns}>
               <button className={styles.reserveBtn}>
@@ -122,10 +143,10 @@ const ProductPage = ({
 
       <div className={styles.feedbackBlock}>
         <div className={styles.feedbackLeftBlock}>
-          <p>
+          <p className={styles.mobileFeedback}>
             4.8 <MdStars /> (16 оценок)
           </p>
-          <p>Оставить отзыв</p>
+          <p className={styles.sendFeedback}>Оставить отзыв</p>
         </div>
         <div className={styles.feedbackRightBlockContainer}>
           {feedback.map((el) => (

@@ -9,11 +9,12 @@
 }
 
 .title {
-  font-size: 23px;
+  font-size: clamp(1.438rem, -0.451rem + 1.89vw, 2.5rem);
   margin-bottom: 3%;
 }
 
 .description {
+  font-size: clamp(1rem, -0.111rem + 1.11vw, 1.625rem);
   margin-bottom: 3%;
 }
 
@@ -23,6 +24,7 @@
 }
 
 .priceAndFeedback {
+  font-size: clamp(1rem, -0.333rem + 1.33vw, 1.75rem);
   display: flex;
   justify-content: space-between;
 }
@@ -55,6 +57,7 @@
   color: #ffff;
   padding: 10px 0;
   border-radius: 2px;
+  font-size: clamp(0.938rem, -0.729rem + 1.67vw, 1.875rem);
   margin-top: 20px;
   transition: all 0.4s ease-in-out;
 }
@@ -92,6 +95,7 @@
   cursor: pointer;
   padding: 10px 15px;
   font-size: 1rem;
+  font-size: clamp(1rem, -0.556rem + 1.56vw, 1.875rem);
   transition: all 0.3s ease-in-out;
   border-bottom: 2px solid rgb(174, 171, 171);
 }
@@ -103,7 +107,7 @@
 .tabContent {
   width: 400px;
   margin-top: 10px;
-  font-size: 1rem;
+  font-size: clamp(1rem, -0.778rem + 1.78vw, 2rem);
   color: #333;
 }
 
@@ -144,10 +148,12 @@
 .feedbackBlock {
   display: flex;
   justify-content: space-between;
+  margin-top: 10%;
 }
 
 .feedbackLeftBlock {
   width: 20%;
+  font-size: clamp(1rem, -0.222rem + 1.22vw, 1.688rem);
 }
 
 .feedbackRightBlockContainer {
@@ -161,7 +167,14 @@
   width: 45%;
   display: flex;
   flex-direction: column;
+  font-size: clamp(1rem, -0.222rem + 1.22vw, 1.688rem);
   margin-bottom: 30px;
+}
+
+.sendFeedback {
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 10px;
 }
 
 .feedbackInfo {
@@ -171,4 +184,63 @@
 
 .feedbackInfo svg {
   margin: 0 5px;
+}
+
+@media (max-width: 1024px) {
+  .productBlock {
+    margin: 0 auto;
+    width: 400px;
+    max-width: 90%;
+    flex-direction: column;
+  }
+
+  .productImage {
+    width: 100%;
+  }
+
+  .mobilePrice {
+    margin: 5% 0;
+  }
+
+  .sliderTitleContainer {
+    flex-direction: column;
+  }
+
+  .sliderBtns {
+    margin: 15px 10px 0 0;
+  }
+
+  .tabContent {
+    width: auto;
+  }
+
+  .feedbackBlock,
+  .feedbackRightBlockContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feedbackRightBlockContainer,
+  .feedbackLeftBlock {
+    width: 90%;
+  }
+
+  .feedbackRightBlock {
+    width: 100%;
+  }
+
+  .feedbackLeftBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 5%;
+  }
+
+  .mobileFeedback {
+    display: flex;
+  }
+
+  .mobileFeedback svg {
+    margin: 0 5px;
+  }
 }
